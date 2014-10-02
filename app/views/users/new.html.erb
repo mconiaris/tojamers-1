@@ -5,6 +5,12 @@ Create an account!
 Enter email
 <%= f.text_field :email %>
 </br>
+Enter first name
+<%= f.text_field :first_name %>
+</br>
+Enter last name
+<%= f.text_field :last_name %>
+</br>
 Enter password
 <%= f.text_field :password %>
 </br>
@@ -16,9 +22,9 @@ Confirm password
 </br>
 Are you a company?
 Yes
-<%= radio_button_tag(:company, "true") %>
+<%= radio_button_tag(:user_type, "company") %>
 No
-<%= radio_button_tag(:company, "false") %>
+<%= radio_button_tag(:user_type, "individual") %>
 </br>
 <%= f.submit "create account!" %>
 <% end %>
