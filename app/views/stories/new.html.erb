@@ -1,24 +1,15 @@
-new.html.erb
-FORM HERE
+<h1>New Story</h1>
 
-<%= form_for @user do |f| %>
-Enter email
-<%= f.text_field :email %>
+<%= form_for @story do |f| %>
+<!-- TODO: User should be dynamically included -->
+User (should be dynamically entered in):
+<%= f.text_field :user %>
 </br>
-Enter password
-<%= f.text_field :password %>
+Enter URL
+<%= f.text_field :url %>
 </br>
-Enter phone #
-<%= f.text_field :phone %>
+Enter Description
+<%= f.text_field :description %>
 </br>
-Confirm password
-<%= f.text_field :password_confirmation %>
-</br>
-Are you a company?
-Yes
-<%= radio_button_tag(:company, "true") %>
-No
-<%= radio_button_tag(:company, "false") %>
-</br>
-<%= f.submit "create account!" %>
+<%= f.submit "create story!" %>
 <% end %>
