@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "the signin process", :type => :feature do
   before :each do
     User.create(first_name: "Ryan", last_name: "Parks", email: "rnparks@gmail.com", phone: "(917) 750-2397", user_type: "company", password: "12345")
