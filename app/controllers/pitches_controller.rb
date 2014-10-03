@@ -1,4 +1,4 @@
-class PitchsController < ApplicationController
+class PitchesController < ApplicationController
 
 
 

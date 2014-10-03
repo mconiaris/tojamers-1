@@ -19,6 +19,6 @@ phil_story = Story.create(user: phil, url: "https://www.linkedin.com/pub/phillip
 travis_story = Story.create(user: travis, url: "https://twitter.com/YourFriendTrav", description: "Instructor at GA." )
 
 # # Commented out until Pitch model and controller is created.
-# pj_pitch = Pitch.create(story: pj_story, pitch: "I'm looking for a Ruby on Rails Wizard")
-# phil_pitch = Pitch.create(story: phil_pitch, pitch: "I am a Ruby on Rails Wizard.")
-# travis_pitch = Pitch.create(story: travis_pitch, pitch: "I like the Bachelorette.")
+pj_pitch = Pitch.create(body: "I'm looking for a Ruby on Rails Wizard")
+phil_pitch = Pitch.create(body: phil_pitch, pitch: "I am a Ruby on Rails Wizard.")
+travis_pitch = Pitch.create(body: travis_pitch, pitch: "I like the Bachelorette.")
