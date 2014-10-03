@@ -28,9 +28,12 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
     params.require(:user).permit(:password, :first_name, :last_name, :email, :phone, :company, :user_type)
   end
 
+  # def user_exists?
+  #   redirect_to root_path if !User.exists?(params[:id])
+  # end
+
   def load_user
-    @user = User.find(params[:id])
-    redirect_to root_path if !@user
+    redirect_to root_path if @user = User.find(params[:id]) == nil
   end
 
   def authenticate
