@@ -40,7 +40,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
-  gem 'selenium-webdriver'
+  #gem 'selenium-webdriver'
   gem 'pry-rails'
   gem 'annotate'
   gem 'capybara'
