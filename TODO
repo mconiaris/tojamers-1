@@ -1,13 +1,3 @@
 TODO
 
-pitch_spec.rb
-
-require 'rails_helper'
-
-RSpec.describe Pitch, :type => :model do
-  it { should belong_to(:stories) }
-  it { should validate_presence_of(:pitch) }
-end
-
-
------------------------------------
+Put text here that you think might work in the future.
