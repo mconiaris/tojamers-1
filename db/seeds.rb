@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.destroy_all
 Story.destroy_all
-# Pitch.destroy_all
+Pitch.destroy_all
 
 ryan = User.create(first_name: "Ryan", last_name: "Parks", email: "rnparks@gmail.com", phone: "(917) 750-2397", user_type: "company", password: "12345")
 pj = User.create(first_name: "PJ", last_name: "Hughes", email: "pj@ga.co", phone: "(855) 288-0881", user_type: "company", password: "thisisfake")
@@ -20,5 +20,5 @@ travis_story = Story.create(user: travis, url: "https://twitter.com/YourFriendTr
 
 # # Commented out until Pitch model and controller is created.
 pj_pitch = Pitch.create(body: "I'm looking for a Ruby on Rails Wizard")
-phil_pitch = Pitch.create(body: phil_pitch, pitch: "I am a Ruby on Rails Wizard.")
-travis_pitch = Pitch.create(body: travis_pitch, pitch: "I like the Bachelorette.")
+phil_pitch = Pitch.create(body: "I am a Ruby on Rails Wizard.")
+travis_pitch = Pitch.create(body: "I like the Bachelorette.")
