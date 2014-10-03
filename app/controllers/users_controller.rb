@@ -14,6 +14,8 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
 
   def create
     a = User.create(user_params)
+    a.user_type = params[:user_type]
+    a.save
     session[:user_id] = a.id
     redirect_to user_path(a)
   end
@@ -33,7 +35,10 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
   # end
 
   def load_user
-    redirect_to root_path if @user = User.find(params[:id]) == nil
+
+    @user = User.find_by(id: params[:id])
+    redirect_to root_path if !@user
+
   end
 
   def authenticate
