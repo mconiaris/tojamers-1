@@ -1,47 +1,74 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-before_action :load_user, only: [:show, :edit, :destroy, :update,]
-before_action :authenticate, :authorize
-
-
+  # GET /users
+  # GET /users.json
   def index
+    @users = User.all
   end
 
+  # GET /users/1
+  # GET /users/1.json
+  def show
+  end
+
+  # GET /users/new
   def new
     @user = User.new
   end
 
-  def create
-    a = User.create(user_params)
-    session[:user_id] = a.id
-    redirect_to user_path(a)
+  # GET /users/1/edit
+  def edit
   end
 
-  def show
-    @user = User.find(params[:id])
+  # POST /users
+  # POST /users.json
+  def create
+    @user = User.new(user_params)
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /users/1
+  # PATCH/PUT /users/1.json
+  def update
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /users/1
+  # DELETE /users/1.json
+  def destroy
+    @user.destroy
+    respond_to do |format|
+      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:password, :first_name, :last_name, :email, :phone, :company, :user_type)
-  end
-
-    def load_user
+    # Use callbacks to share common setup or constraints between actions.
+    def set_user
       @user = User.find(params[:id])
-      redirect_to root_path if !@user
     end
 
-    def authenticate
-      redirect_to root_path if !logged_in?#if the sessions u?er is returning nil, let's redirect to login
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :email, :phone, :password_digest, :user_type)
     end
-
-    def authorize
-
-      if current_user != @user #here we are making sure that the user coming from params is the same as the user in params
-      redirect_to user_path(current_user)
-      end
-
-    end
-
 end

@@ -1,7 +1,34 @@
-<%= link_to( "Click here to logout",session_path, method: 'delete') %> </p>
-</br>
-We will show their information here, and any of their stories
-</br>
-This persons EMAIL is <%= @user.email %>
+<p id="notice"><%= notice %></p>
 
-<%= link_to('home',root_path) %>
+<p>
+  <strong>First name:</strong>
+  <%= @user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @user.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p>
+
+<p>
+  <strong>User type:</strong>
+  <%= @user.user_type %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>
