@@ -29,7 +29,7 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
   end
 
   def load_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
     redirect_to root_path if !@user
   end
 
