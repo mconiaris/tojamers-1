@@ -2,14 +2,13 @@
 
 <%= form_for @story do |f| %>
 <!-- TODO: User should be dynamically included -->
-User (should be dynamically entered in):
-<%= f.text_field :user %>
-</br>
+
 Enter URL
 <%= f.text_field :url %>
 </br>
 Enter Description
 <%= f.text_field :description %>
 </br>
+<%= hidden_field_tag(:userid, @user_id) %>
 <%= f.submit "create story!" %>
 <% end %>
