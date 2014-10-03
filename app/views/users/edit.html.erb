@@ -1,0 +1,16 @@
+EDIT FORM
+<%= form_for @user do |f| %>
+Enter email
+<%= f.text_field :email %>
+</br>
+Enter first name
+<%= f.text_field :first_name %>
+</br>
+Enter last name
+<%= f.text_field :last_name %>
+</br>
+Enter phone #
+<%= f.text_field :phone %>
+</br>
+<%= f.submit "update" %>
+<% end %>
