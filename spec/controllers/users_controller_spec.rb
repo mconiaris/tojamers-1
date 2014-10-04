@@ -110,9 +110,14 @@ RSpec.describe UsersController, :type => :controller do
 
   describe "def (PUT) update" do
     describe "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) {{
+        first_name: "Evan",
+        last_name:  "Berg",
+        email:      "GoRedskins@aol.com",
+        phone:      "718-555-1212",
+        password:   "updateworked",
+        user_type:  "seeker"
+      }}
 
       it "updates the requested user" do
         user = User.create! valid_attributes
@@ -130,7 +135,6 @@ RSpec.describe UsersController, :type => :controller do
       it "redirects to the user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
-        binding.pry
         expect(response).to redirect_to(user)
       end
     end
