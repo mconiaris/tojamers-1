@@ -13,11 +13,12 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
   end
 
   def create
-    a = User.create(user_params)
-    a.user_type = params[:user_type]
-    a.save
-    session[:user_id] = a.id
-    redirect_to user_path(a)
+    @user = User.create(user_params)
+    @user.user_type = params[:user_type]
+    @user.save
+    session[:user_id] = @user.id
+    # binding.pry
+    redirect_to user_path(@user)
   end
 
   def destroy
@@ -36,10 +37,10 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
   end
 
   def update
-    edit_me = User.find(params[:id])
-    edit_me.update(user_params)
-    edit_me.save
-    redirect_to user_path(edit_me)
+    user = User.find(params[:id])
+    user.update(user_params)
+    user.save
+    redirect_to user_path(user)
   end
 
   private
