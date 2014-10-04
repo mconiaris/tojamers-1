@@ -137,6 +137,7 @@ RSpec.describe UsersController, :type => :controller do
       xit "redirects to the user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => valid_attributes}, valid_session
+        # binding.pry
         expect(response).to redirect_to(user)
       end
     end
