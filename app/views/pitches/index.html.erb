@@ -1,2 +1,18 @@
-<h1>Pitchs index page</h1>
-dummy page
+<h1>Showing All the Pitches</h1>
+
+<!-- Search bar  -->
+<%= form_tag("/pitches", method: "post") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<!-- must dynamically link back to story related to pitch -->
+<ol>
+<% @pitches.each do |pitch| %>
+<li><a href="https://scontent-b-sjc.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10689422_10152757318508584_6546062842048346557_n.jpg?oh=aa56fc117a85f02a9b4345c533e08e25&oe=54C6869E"> <%= pitch.body %> </a> </li>
+<% end %>
+</ol>
+
+
+

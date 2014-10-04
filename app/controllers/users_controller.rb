@@ -14,12 +14,32 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
 
   def create
     a = User.create(user_params)
+    a.user_type = params[:user_type]
+    a.save
     session[:user_id] = a.id
     redirect_to user_path(a)
   end
 
+  def destroy
+    user = User.find(params[:id])
+    user.delete
+    session[:user_id] = nil
+    redirect_to root_path
+  end
+
   def show
     @user = User.find(params[:id])
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    edit_me = User.find(params[:id])
+    edit_me.update(user_params)
+    edit_me.save
+    redirect_to user_path(edit_me)
   end
 
   private
@@ -28,9 +48,15 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
     params.require(:user).permit(:password, :first_name, :last_name, :email, :phone, :company, :user_type)
   end
 
+  # def user_exists?
+  #   redirect_to root_path if !User.exists?(params[:id])
+  # end
+
   def load_user
+
     @user = User.find_by(id: params[:id])
     redirect_to root_path if !@user
+
   end
 
   def authenticate
