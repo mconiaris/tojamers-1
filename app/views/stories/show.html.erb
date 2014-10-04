@@ -1,0 +1,12 @@
+Description here:
+<%= @story[:description] %>
+</br>
+MORE ATTRIBUTES, etc here
+</br>
+The edit link needs permissions
+<%= link_to("edit this story", edit_story_path(@story)) %>
+</br> Need to have a link to adding a pitch to this story!
+</br>
+
+<%= link_to 'Destroy', @story, method: :delete, data: { confirm: "Are you sure you want to delete this story? It can't be undone!"  } %>
+Need to have a link to deleting story here (check permissions)
