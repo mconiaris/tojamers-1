@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :destroy]
   resources :users
   resources :stories do
-    resources :pitches, model: 'Pitch'
+    resources :pitches
   end
 
 

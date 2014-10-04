@@ -10,12 +10,36 @@ class PitchesController < ApplicationController
     @pitch = Pitch.new
   end
 
+  def show
+    @pitch = Pitch.find(params[:id])
+    @story = Story.find(params[:story_id])
+    # binding.pry
+  end
+
+  def destroy
+    pitch = Pitch.find(params[:id])
+    story = Story.find(params[:story_id])
+    pitch.delete
+    redirect_to story_path(story)
+  end
+
   def create
     pitch = Pitch.create(pitch_params)
     story = Story.find(params[:story_id])
     pitch.story_id = params[:story_id]
     pitch.save
     redirect_to story_path(story)
+  end
+
+  def edit
+    @pitch = Pitch.find(params[:id])
+  end
+
+  def update
+    story = Story.find(params[:story_id])
+    pitch = Pitch.find(params[:id])
+    pitch.update(pitch_params)
+    redirect_to story_pitch_path(story, pitch)
   end
 
   private

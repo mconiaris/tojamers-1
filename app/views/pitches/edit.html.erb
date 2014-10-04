@@ -1,5 +1,5 @@
 EDIT FORM
-<%= form_for @pitch do |f| %>
+<%= form_for(@pitch, :url=> {:action=> (@pitch.new_record? ? 'create' : 'update')}) do |f| %>
 Enter Pitch
 <%= f.text_field :body %>
 </br>
