@@ -160,8 +160,7 @@ RSpec.describe UsersController, :type => :controller do
     it "destroys the requested user" do
       user = User.create! valid_attributes
       expect {
-        delete :destroy, {:id => user.to_param}, valid_session
-      }.to change(User, :count).by(-1)
+        delete :destroy, {:id => user.to_param}.not_to_be_routable }
     end
 
     it "redirects to the login page" do
