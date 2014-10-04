@@ -23,7 +23,9 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
 
   def destroy
     user = User.find(params[:id])
+    binding.pry
     user.delete
+    binding.pry
     session[:user_id] = nil
     redirect_to root_path
   end

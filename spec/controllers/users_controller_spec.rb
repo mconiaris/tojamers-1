@@ -164,11 +164,10 @@ RSpec.describe UsersController, :type => :controller do
       }.to change(User, :count).by(-1)
     end
 
-    it "redirects to the users list" do
+    it "redirects to the login page" do
       user = User.create! valid_attributes
       delete :destroy, {:id => user.to_param}, valid_session
-      expect(response).to redirect_to(users_url)
+      expect(response).to redirect_to(root_url)
     end
   end
-
 end
