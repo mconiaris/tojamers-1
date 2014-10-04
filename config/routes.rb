@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   resource :session, only: [:create, :destroy]
   resources :users
-  resources :stories
-  resources :pitches
+  resources :stories do
+    resources :pitches, model: 'Pitch'
+  end
+
 
 
 
