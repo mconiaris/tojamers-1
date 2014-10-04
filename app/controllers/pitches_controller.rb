@@ -11,12 +11,18 @@ class PitchesController < ApplicationController
   end
 
   def create
-    binding.pry
-    # pitch = Pitch.create(user_params)
-    # pitch.save
-    # session[:user_id] = pitch.id
-    # redirect_to user_path(a)
+    pitch = Pitch.create(pitch_params)
+    story = Story.find(params[:story_id])
+    pitch.story_id = params[:story_id]
+    pitch.save
+    redirect_to story_path(story)
   end
+
+  private
+  def pitch_params
+    params.require(:pitch).permit(:body)
+  end
+
 
 
 

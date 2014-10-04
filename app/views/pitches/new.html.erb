@@ -1,2 +1,7 @@
-<h1>Pitchs New page</h1>
-dummy page
+<h1>Pitches New page</h1>
+<%= form_for(@pitch, :url=> {:action=> (@pitch.new_record? ? 'create' : 'update')}) do |f| %>
+What's your pitch?
+<%= f.text_field :body %>
+</br>
+<%= f.submit "pitch it!" %>
+<% end %>
