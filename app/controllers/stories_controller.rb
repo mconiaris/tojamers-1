@@ -11,6 +11,24 @@ class StoriesController < ApplicationController
   end
 
   def show
+    @story = Story.find(params[:id])
+  end
+
+  def edit
+    @story = Story.find(params[:id])
+  end
+
+  def update
+    story = Story.find(params[:id])
+    story.update(story_params)
+    redirect_to story_path(story)
+  end
+
+  def destroy
+    story = Story.find(params[:id])
+    user = story.user_id
+    story.delete
+    redirect_to user_path(user)
   end
 
   def create
@@ -18,7 +36,6 @@ class StoriesController < ApplicationController
     story = Story.create(story_params)
     story.user = user
     story.save
-    # binding.pry
     redirect_to user_path(user)
   end
 

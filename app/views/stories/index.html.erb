@@ -1,3 +1,7 @@
+MY STORIES
+</br>
+</br>
 <% @user.stories.each do |story| %>
-<%= story[:description] %>
+<%= link_to(story[:description],story_path(story)) %>
+</br>
 <% end %>
