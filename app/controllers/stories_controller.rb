@@ -27,7 +27,7 @@ class StoriesController < ApplicationController
   def destroy
     story = Story.find(params[:id])
     user = story.user_id
-    story.delete
+    story.destroy
     redirect_to user_path(user)
   end
 
