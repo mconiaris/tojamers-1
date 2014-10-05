@@ -11,12 +11,10 @@
 <ol>
 <% @pitches.each do |pitch| %>
 <% id = pitch.story_id %>
-<%= link_to(pitch.body, story_pitch_path(pitch.story_id, pitch)) %>
+<%= link_to(pitch.body, story_path(pitch.story_id)) %>
 </br>
 <% end %>
 </ol>
-
-<!-- the link is probably going to be done manually, hopefully running the story id method, etc, on the object and then using string interpolation. -->
 
 
 
