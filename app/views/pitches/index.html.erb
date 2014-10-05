@@ -7,10 +7,8 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<!-- must dynamically link back to story related to pitch -->
 <ol>
 <% @pitches.each do |pitch| %>
-<% id = pitch.story_id %>
 <%= link_to(pitch.body, story_path(pitch.story_id)) %>
 </br>
 <% end %>

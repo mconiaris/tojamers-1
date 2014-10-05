@@ -13,7 +13,6 @@ class PitchesController < ApplicationController
   def show
     @pitch = Pitch.find(params[:id])
     @story = Story.find(params[:story_id])
-    # binding.pry
   end
 
   def destroy
