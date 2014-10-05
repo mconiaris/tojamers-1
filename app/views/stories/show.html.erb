@@ -2,8 +2,6 @@ Description:
 <%= @story[:description] %>
 </br>
 </br>
-
-
 PITCHES BELOW:
 </br>
 </br>
@@ -13,7 +11,6 @@ PITCHES BELOW:
 </br>
 <% end %>
 </br>
-<% if @current_user == @params_user %>
 <%= link_to("Edit this story", edit_story_path(@story)) %>
 </br>
 
@@ -21,5 +18,4 @@ PITCHES BELOW:
 </br>
 <%= link_to 'Delete this story', @story, method: :delete, data: { confirm: "Are you sure you want to delete this story? It can't be undone!"  } %>
 </br>
-<% end %>
 <%= link_to 'Back', :back %>

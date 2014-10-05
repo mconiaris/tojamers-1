@@ -6,6 +6,14 @@ class PitchesController < ApplicationController
     @pitches = Pitch.all
   end
 
+  def individual
+    @pitches = Pitch.all
+  end
+
+  def business
+    @pitches = Pitch.all
+  end
+
   def new
     @pitch = Pitch.new
     @user = User.find(session[:user_id])

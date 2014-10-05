@@ -7,13 +7,31 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<!-- bar of links to different sorts of all pitches -->
+<%= link_to("Sort by individuals", pitches_individual_path) %>
+<%= link_to("Sort by businesses", pitches_business_path) %>
+
+
 <ol>
 <% @pitches.each do |pitch| %>
-<%= link_to(pitch.body, story_path(pitch.story_id)) %>
-</br>
+  <%= link_to(pitch.body, story_path(pitch.story_id)) %>
+  </br>
 <% end %>
 </ol>
 
 
 
 
+<!-- we want all pitches from businesses
+@pitches.each do |pitch|
+ if pitch.user.user_type == "business"
+ link_to(pitch.body, story_path(pitch.story_id))
+ end
+
+ we want all pitches from from individuals
+@pitches.each do |pitch|
+ if pitch.user.user_type == "individual"
+ link_to(pitch.body, story_path(pitch.story_id))
+ end
+
+ how to best do this? create separate pages? better to do it dynamically, but how? what condition?
