@@ -39,9 +39,13 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
   end
 
   def update
+    # binding.pry
     user = User.find(params[:id])
+    # binding.pry
     user.update(user_params)
+    # binding.pry
     user.save
+    # binding.pry
     redirect_to user_path(user)
   end
 

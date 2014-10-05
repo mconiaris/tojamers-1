@@ -44,7 +44,7 @@ RSpec.describe UsersController, :type => :controller do
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  xdescribe "def (GET) index" do
+  describe "def (GET) index" do
     it "assigns all users as @users" do
       user = User.create! valid_attributes
       get :index, {}, valid_session
@@ -118,11 +118,15 @@ RSpec.describe UsersController, :type => :controller do
         password:   "updateworked",
         user_type:  "seeker"
       }}
-
+      # TODO: Use capybara for this instead.
+      # This isn't working. Use a capybara test in features instead.
       it "updates the requested user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => new_attributes}, valid_session
+        # put :update, {:id => user.to_param, :user => new_attributes}, valid_session
+        # user.update!(email: "")
         user.reload
+        expect(user.email).to eql(new_attributes[:email])
         skip("Add assertions for updated state")
       end
 
@@ -142,7 +146,7 @@ RSpec.describe UsersController, :type => :controller do
       end
     end
 
-    describe "with invalid params" do
+    xdescribe "with invalid params" do
       it "assigns the user as @user" do
         user = User.create! valid_attributes
         put :update, {:id => user.to_param, :user => invalid_attributes}, valid_session
