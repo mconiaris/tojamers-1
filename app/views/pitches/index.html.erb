@@ -10,9 +10,12 @@
 <!-- must dynamically link back to story related to pitch -->
 <ol>
 <% @pitches.each do |pitch| %>
-<li><a href="https://scontent-b-sjc.xx.fbcdn.net/hphotos-xpa1/v/t1.0-9/10689422_10152757318508584_6546062842048346557_n.jpg?oh=aa56fc117a85f02a9b4345c533e08e25&oe=54C6869E"> <%= pitch.body %> </a> </li>
+<% id = pitch.story_id %>
+<%= link_to(pitch.body, story_path(pitch.story_id)) %>
+</br>
 <% end %>
 </ol>
+
 
 
 

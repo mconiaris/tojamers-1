@@ -52,3 +52,11 @@ travis_story = Story.create(user_id:3, url: "https://twitter.com/YourFriendTrav"
 pj_pitch = Pitch.create(body: "I'm looking for a Ruby on Rails Wizard")
 phil_pitch = Pitch.create(body: "I am a Ruby on Rails Wizard.")
 travis_pitch = Pitch.create(body: "I like the Bachelorette.")
+
+pj_pitch.story = pj_story
+phil_pitch.story = phil_story
+travis_pitch.story = travis_story
+
+pj_pitch.save
+phil_pitch.save
+travis_pitch.save
