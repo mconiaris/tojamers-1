@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :pitches
   end
 
-
+  get '/pitches' => 'pitches#index'
 
 
 
