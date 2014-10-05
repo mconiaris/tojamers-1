@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20141003140034) do
   add_index "pitches", ["story_id"], name: "index_pitches_on_story_id", using: :btree
 
   create_table "stories", force: true do |t|
-    t.string   "user"
     t.string   "url"
     t.string   "description"
     t.datetime "created_at"

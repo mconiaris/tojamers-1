@@ -23,9 +23,9 @@ RSpec.describe PitchesController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # Pitch. As you add validations to Pitch, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
+  let(:valid_attributes) {{
     skip("Add a hash of attributes valid for your model")
-  }
+  }}
 
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")

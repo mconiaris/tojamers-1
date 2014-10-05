@@ -7,8 +7,8 @@ require 'rails_helper'
 #   t.string :description
 
 RSpec.describe Story, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-  it { should belong_to(:users) }
+  it { should belong_to(:user) }
+  # TODO is this redundant if it belongs to the user
   it { should validate_presence_of(:user) }
   # it { should validate_presence_of(:url) }
   it { should validate_presence_of(:description) }
