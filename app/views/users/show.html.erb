@@ -5,12 +5,10 @@
 
 </p>
 </br>
-We will show their information here, and any of their stories
-</br>
-This persons EMAIL is <%= @user.email %>
+Hey, <%= @user.first_name %>!
+
 
 <br>
-First, let's try and display all the stories that belong to a user
 <%= link_to('my stories', stories_path) %> <!-- broken, this is a hacked path. we need to nest resources carefully -->
 </br>
 <%= link_to('new story', new_story_path) %>

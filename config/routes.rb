@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
+  root 'pitches#index'
   get '/login' => 'sessions#new'
   resource :session, only: [:create, :destroy]
   resources :users
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   get '/pitches' => 'pitches#index'
+  get '/profile' => 'sessions#index'
 
 
 
