@@ -1,5 +1,4 @@
 class StoriesController < ApplicationController
-
   def index
     @user = User.find(session[:user_id])
     # @user = User.find(params[:user_id])
@@ -12,6 +11,10 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+    @current_user = User.find_by(id: session[:user_id])
+    @params_user = User.find_by(id: params[:id])
+    ### attempt at a validation. the user can only edit the stories, delete, etc if they are logged in
+    #we compare the user in session to the user in the URL (params)
   end
 
   def edit
