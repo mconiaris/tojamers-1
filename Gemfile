@@ -30,6 +30,7 @@ gem 'spring',        group: :development
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'httparty'
+gem 'faker'
 
 # Use unicorn as the app server
 # gem 'unicorn'

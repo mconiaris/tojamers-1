@@ -31,6 +31,11 @@ def random_user_individual
   User.create(first_name: first_name, last_name: last_name, email: email, phone: phone, user_type: user_type, password: password)
 end
 
+def random_pitch
+  Pitch.create(story_id: "#{rand(1..3).to_s}", body: "#{Faker::Lorem.sentence}")
+end
+
+
 ryan = User.create(first_name: "Ryan", last_name: "Parks", email: "rnparks@gmail.com", phone: "(917) 750-2397", user_type: "company", password: "12345")
 pj = User.create(first_name: "PJ", last_name: "Hughes", email: "pj@ga.co", phone: "(855) 288-0881", user_type: "company", password: "thisisfake")
 phil = User.create(first_name: "Phil", last_name: "Lamplaugh", email: "philco@ga.co", phone: "(855) 288-0881", user_type: "individual", password: "bullshitpassword")
@@ -41,8 +46,6 @@ travis = User.create(first_name: "Travis", last_name: "Vander Hoop", email: "tra
   random_user_company
   random_user_individual
 end
-
-
 
 pj_story = Story.create(user_id: 1, url: "https://generalassemb.ly/", description: "GA is building a Website for people who are in a bad place in their life." )
 phil_story = Story.create(user_id: 2, url: "https://www.linkedin.com/pub/phillip-lamplugh/3/7ab/986", description: "I am a Brooding Visionaire." )
@@ -60,3 +63,8 @@ travis_pitch.story = travis_story
 pj_pitch.save
 phil_pitch.save
 travis_pitch.save
+
+25.times do
+  random_pitch
+end
+
