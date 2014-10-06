@@ -11,7 +11,7 @@ PITCHES BELOW:
 </br>
 <% end %>
 </br>
-<% if @sessions_email == @current_user_email %>
+<% if authorized? %>
   <%= link_to("Edit this story", edit_story_path(@story)) %>
   </br>
   <%= link_to("Make a new pitch for this story", new_story_pitch_path(@story)) %>
