@@ -12,7 +12,7 @@ RSpec.describe "pitches/index", :type => :view do
     ])
   end
 
-  it "renders a list of pitches" do
+  xit "renders a list of pitches" do
     render
     assert_select "tr>td", :text => "Body".to_s, :count => 2
   end

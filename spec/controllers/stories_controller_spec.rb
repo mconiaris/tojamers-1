@@ -23,9 +23,10 @@ RSpec.describe StoriesController, :type => :controller do
   # This should return the minimal set of attributes required to create a valid
   # Story. As you add validations to Story, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) {{
+    url:          "https://generalassemb.ly/",
+    description:  "GA is building a Website for people who are in a bad place in their life.",
+  }}
 
   let(:invalid_attributes) {
     skip("Add a hash of attributes invalid for your model")

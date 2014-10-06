@@ -7,7 +7,7 @@ RSpec.describe "pitches/new", :type => :view do
     ))
   end
 
-  it "renders new pitch form" do
+  xit "renders new pitch form" do
     render
 
     assert_select "form[action=?][method=?]", pitches_path, "post" do

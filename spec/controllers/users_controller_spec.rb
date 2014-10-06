@@ -44,7 +44,7 @@ RSpec.describe UsersController, :type => :controller do
   # UsersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  xdescribe "def (GET) index" do
+  describe "def (GET) index" do
     it "assigns all users as @users" do
       user = User.create! valid_attributes
       get :index, {}, valid_session
