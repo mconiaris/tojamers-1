@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/pitches/individual' => 'pitches#individual'
   get '/pitches/business' => 'pitches#business'
   get '/all_stories' => 'stories#all_stories'
+  post '/pitches/search' => 'pitches#search'
 
 
 

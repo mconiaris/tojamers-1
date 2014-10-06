@@ -12,7 +12,8 @@ class PitchesController < ApplicationController
   end
 
   def search
-    binding.pry
+  search = params[:q]
+  @pitches = Pitch.where('lower(body) like ?', "%#{search}%")
   end
 
 
