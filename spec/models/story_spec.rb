@@ -8,8 +8,8 @@ require 'rails_helper'
 
 RSpec.describe Story, :type => :model do
   pending "add some examples to (or delete) #{__FILE__}"
-  it { should belong_to(:users) }
-  it { should validate_presence_of(:user) }
+  it { should belong_to(:user) }
+  xit { should validate_presence_of(:user) }
   # it { should validate_presence_of(:url) }
-  it { should validate_presence_of(:description) }
+  xit { should validate_presence_of(:description) }
 end

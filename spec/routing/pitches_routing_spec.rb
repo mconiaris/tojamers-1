@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe PitchesController, :type => :routing do
-  describe "routing" do
+  xdescribe "routing" do
 
     it "routes to #index" do
       expect(:get => "/pitches").to route_to("pitches#index")
