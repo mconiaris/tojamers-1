@@ -1,15 +1,14 @@
 <h1>New Story</h1>
 
 <%= form_for @story do |f| %>
-<!-- TODO: User should be dynamically included -->
-
-Enter URL
-<%= f.text_field :url %>
-</br>
-Enter Description
-<%= f.text_field :description %>
-</br>
-<%= hidden_field_tag(:userid, @user_id) %>
-<%= f.submit "create story!" %>
+  Enter URL
+  <%= f.text_field :url %>
+  </br>
+  Enter Description
+  <%= f.text_field :description %>
+  </br>
+  <%= hidden_field_tag(:userid, @user_id) %>
+  <%= f.submit "create story!" %>
 <% end %>
+
 <%= link_to 'Back', :back %>
