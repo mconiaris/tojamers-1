@@ -5,8 +5,14 @@ require 'spec_helper'
 # TODO create a spec helper to do that
 describe "the successful login and logout process", :type => :feature do
   before :each do
-    User.create(first_name: "Ryan", last_name: "Parks", email: "rnparks@gmail.com", phone: "(917) 750-2397", user_type: "company", password: "12345")
+    User.create(first_name: "Ryan",
+                last_name: "Parks",
+                email: "rnparks@gmail.com",
+                phone: "(917) 750-2397",
+                user_type: "company",
+                password: "12345")
   end
+  # TODO: Factor this out into a helper class
   it "signs me in" do
     visit '/login'
     within("div.login") do
@@ -23,10 +29,21 @@ describe "the successful login and logout process", :type => :feature do
 end
 
 describe "the logout process", :type => :feature do
-    user = User.create(first_name: "Ryan", last_name: "Parks", email: "rnparks@gmail.com", phone: "(917) 750-2397", user_type: "company", password: "12345")
+  before :each do
+    user = User.create( first_name: "Ryan",
+                        last_name: "Parks",
+                        email: "rnparks@gmail.com",
+                        phone: "(917) 750-2397",
+                        user_type: "company",
+                        password: "12345")
+    visit '/login'
+    within("div.login") do
+      fill_in 'Email', :with => 'rnparks@gmail.com'
+      fill_in 'Password', :with => '12345'
+    end
+    click_button 'Login'
+  end
   it "signs you out" do
-    visit users_path
-    binding.pry
     expect(page).to have_content 'Click here to logout'
     # TODO: Replace 'Login' with a variable or a
     # placeholder in case 'Login' changes.
