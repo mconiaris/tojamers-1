@@ -15,8 +15,13 @@ class StoriesController < ApplicationController
   def show
   end
 
+  def all_stories
+    @stories = Story.all
+    render :all_stories
+  end
+
   def edit
-    if @story.user.email == session[:user_email]
+    if @story.user.email == session[:user_email] || session[:user_role] == "admin"
       render :edit
     else
       redirect_to root_path
@@ -54,7 +59,12 @@ class StoriesController < ApplicationController
     current_user_email == sessions_email
   end
 
+  def admin?
+    session[:user_role] == "admin"
+  end
+
   helper_method :authorized?
+  helper_method :admin?
 
   private
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get '/admin/users' => 'users#index'
   get '/pitches/individual' => 'pitches#individual'
   get '/pitches/business' => 'pitches#business'
+  get '/all_stories' => 'stories#all_stories'
 
 
 
