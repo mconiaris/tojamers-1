@@ -11,9 +11,8 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
-    @current_user = User.find_by(id: session[:user_id])
-    @params_user = User.find_by(id: params[:id])
-    # binding.pry
+    @current_user_email = @story.user.email
+    @sessions_email = session[:user_email]
     ### attempt at a validation. the user can only edit the stories, delete, etc if they are logged in
     #we compare the user in session to the user in the URL (params)
     #something isn't working here, it's not always finding the params user???

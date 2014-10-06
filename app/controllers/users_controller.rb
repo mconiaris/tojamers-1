@@ -18,6 +18,7 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
     @user.user_type = params[:user_type]
     @user.save
     session[:user_id] = @user.id
+    session[:user_email] = @user.email
     # binding.pry
     redirect_to user_path(@user)
   end
