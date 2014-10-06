@@ -58,9 +58,9 @@ def random_story
     business_location     = Faker::Address.city
     business_description  = Faker::Company.bs
     industry              = ["Web Development", "Finance", "Back-end Development", "Media", "Advertising"].sample
-    founders              = [Faker::Name.name, Faker::Name.name, Faker::Name.name]
+    founders              = "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}"
     size                  = rand(100)
-    year_founded          = [1975..2014].sample
+    year_founded          = (1975..2014).to_a.sample
     Story.create( user_id: rand(1..50),
                   url: url,
                   description: description,
@@ -80,15 +80,15 @@ def random_story
                   postgresql: postgresql,
                   mysql: mysql,
                   personal_location: personal_location,
-                  personal_description: personal_description
-                  image_url: image_url
+                  personal_description: personal_description,
+                  image_url: image_url,
                   business_name: business_name,
                   logo_url: logo_url,
                   business_location: business_location,
                   business_description: business_description,
                   industry: industry,
                   founders: founders,
-                  size: size
+                  size: size,
                   year_founded: year_founded
                 )
 end
@@ -103,22 +103,22 @@ pj = User.create(first_name: "PJ", last_name: "Hughes", email: "pj@ga.co", phone
 phil = User.create(first_name: "Phil", last_name: "Lamplaugh", email: "philco@ga.co", phone: "(855) 288-0881", user_type: "individual", password: "bullshitpassword")
 travis = User.create(first_name: "Travis", last_name: "Vander Hoop", email: "trav@ga.co", phone: "(855) 288-0881", user_type: "individual", password: "notrealatall")
 
-pj_story = Story.create(user_id: 1, url: "https://generalassemb.ly/", description: "GA is building a Website for people who are in a bad place in their life." )
-phil_story = Story.create(user_id: 2, url: "https://www.linkedin.com/pub/phillip-lamplugh/3/7ab/986", description: "I am a Brooding Visionaire." )
-travis_story = Story.create(user_id:3, url: "https://twitter.com/YourFriendTrav", description: "Instructor at GA." )
+#pj_story = Story.create(user_id: 1, url: "https://generalassemb.ly/", description: "GA is building a Website for people who are in a bad place in their life." )
+#phil_story = Story.create(user_id: 2, url: "https://www.linkedin.com/pub/phillip-lamplugh/3/7ab/986", description: "I am a Brooding Visionaire." )
+#travis_story = Story.create(user_id:3, url: "https://twitter.com/YourFriendTrav", description: "Instructor at GA." )
 
 # # Commented out until Pitch model and controller is created.
-pj_pitch = Pitch.create(body: "I'm looking for a Ruby on Rails Wizard")
-phil_pitch = Pitch.create(body: "I am a Ruby on Rails Wizard.")
-travis_pitch = Pitch.create(body: "I like the Bachelorette.")
+#pj_pitch = Pitch.create(body: "I'm looking for a Ruby on Rails Wizard")
+#phil_pitch = Pitch.create(body: "I am a Ruby on Rails Wizard.")
+#travis_pitch = Pitch.create(body: "I like the Bachelorette.")
 
-pj_pitch.story = pj_story
-phil_pitch.story = phil_story
-travis_pitch.story = travis_story
+#pj_pitch.story = pj_story
+#phil_pitch.story = phil_story
+#travis_pitch.story = travis_story
 
-pj_pitch.save
-phil_pitch.save
-travis_pitch.save
+#pj_pitch.save
+#phil_pitch.save
+#travis_pitch.save
 
 #generating random users
 25.times do
@@ -126,12 +126,12 @@ travis_pitch.save
   random_user_individual
 end
 
-100.times do
+200.times do
   random_story
 end
 
 
-250.times do
+500.times do
   random_pitch
 end
 
