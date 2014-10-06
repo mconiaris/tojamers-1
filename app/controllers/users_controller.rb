@@ -6,6 +6,7 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
 
 
   def index
+    @users = User.all
   end
 
   def new
