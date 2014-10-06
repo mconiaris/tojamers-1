@@ -126,7 +126,7 @@ travis = User.create(first_name: "Travis", last_name: "Vander Hoop", email: "tra
   random_user_individual
 end
 
-200.times do
+100.times do
   random_story
 end
 
