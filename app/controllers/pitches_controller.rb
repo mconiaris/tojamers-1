@@ -11,6 +11,11 @@ class PitchesController < ApplicationController
   def business
   end
 
+  def search
+    binding.pry
+  end
+
+
   def new
     @pitch = Pitch.new
     @user = User.find(session[:user_id])
