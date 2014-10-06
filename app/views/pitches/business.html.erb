@@ -1,0 +1,20 @@
+<h1>Showing All the Pitches From Companies</h1>
+<!-- Search bar  -->
+<%= form_tag("/pitches", method: "post") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<!-- bar of links to different sorts of all pitches -->
+<%= link_to("Sort by individuals", pitches_individual_path) %> |
+<%= link_to("Sort by businesses", pitches_business_path) %>
+</br>
+</br>
+
+<% @pitches.each do |pitch| %>
+   <% if pitch.user.user_type == "company" %>
+     <%= link_to(pitch.body, story_path(pitch.story_id)) %>
+   </br>
+   <% end %>
+<% end %>

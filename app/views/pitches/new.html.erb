@@ -2,6 +2,7 @@
 <%= form_for(@pitch, :url=> {:action=> (@pitch.new_record? ? 'create' : 'update')}) do |f| %>
 What's your pitch?
 <%= f.text_field :body %>
+<%= f.hidden_field :user_type, :value => @user_type %>
 </br>
 <%= f.submit "pitch it!" %>
 <% end %>

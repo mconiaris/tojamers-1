@@ -6,8 +6,18 @@ class PitchesController < ApplicationController
     @pitches = Pitch.all
   end
 
+  def individual
+    @pitches = Pitch.all
+  end
+
+  def business
+    @pitches = Pitch.all
+  end
+
   def new
     @pitch = Pitch.new
+    @user = User.find(session[:user_id])
+    @user_type = @user.user_type
   end
 
   def show
@@ -43,7 +53,7 @@ class PitchesController < ApplicationController
 
   private
   def pitch_params
-    params.require(:pitch).permit(:body)
+    params.require(:pitch).permit(:body, :user_type)
   end
 
 

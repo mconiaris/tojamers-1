@@ -12,7 +12,8 @@ Pitch.destroy_all
 def random_user_company
   response = HTTParty.get("http://api.randomuser.me/")
   first_name = response['results'][0]['user']['name']['first']
-  last_name = response['results'][0]['user']['name']['last']
+  last_name = response['results'][0][
+    'user']['name']['last']
   email = response['results'][0]['user']['email']
   phone = response['results'][0]['user']['phone']
   user_type = "Company"
