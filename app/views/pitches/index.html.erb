@@ -11,7 +11,6 @@
 <%= link_to("Sort by individuals", pitches_individual_path) %>
 <%= link_to("Sort by businesses", pitches_business_path) %>
 
-
 <ol>
 <% @pitches.each do |pitch| %>
   <%= link_to(pitch.body, story_path(pitch.story_id)) %>

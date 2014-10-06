@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
   def index
     if session[:user_id]
       user = User.find(session[:user_id])
+      session[:user_email] = user.email
       redirect_to(user_path(user))
     else
     redirect_to login_path
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
     user = user.authenticate(params[:password]) if user #one line if statement
     if user
       session[:user_id] = user.id
+      session[:user_email] = user.email
       redirect_to(user_path(user))
     else
       flash[:error] = "Sorry! Your password or username is wrong. Please try again!"

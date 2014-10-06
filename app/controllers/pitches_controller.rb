@@ -23,6 +23,8 @@ class PitchesController < ApplicationController
   def show
     @pitch = Pitch.find(params[:id])
     @story = Story.find(params[:story_id])
+    @pitch_email = @pitch.user.email
+    @session_email = session[:user_email]
   end
 
   def destroy
