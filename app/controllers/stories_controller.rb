@@ -10,6 +10,12 @@ class StoriesController < ApplicationController
   def new
     @story = Story.new
     @user_id = session[:user_id]
+    #we need two renders here.
+    #if @story.user.user_type == "individual"
+      # render :individual_form
+    #else
+      # render :company_form
+    #end
   end
 
   def show
@@ -26,6 +32,7 @@ class StoriesController < ApplicationController
     else
       redirect_to root_path
     end
+    #will need two renders here as well for editing a story
   end
 
   def update
