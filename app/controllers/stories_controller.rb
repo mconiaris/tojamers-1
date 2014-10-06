@@ -1,4 +1,7 @@
 class StoriesController < ApplicationController
+  before_action :load_user, only: [:index, :create, :destroy, :update,]
+  before_action :load_story, only: [:show, :edit]
+
   def index
     @user = User.find(session[:user_id])
     # @user = User.find(params[:user_id])
@@ -10,19 +13,19 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = Story.find(params[:id])
-    @current_user = User.find_by(id: session[:user_id])
-    @params_user = User.find_by(id: params[:id])
-    # binding.pry
-    ### attempt at a validation. the user can only edit the stories, delete, etc if they are logged in
-    #we compare the user in session to the user in the URL (params)
-    #something isn't working here, it's not always finding the params user???
-    #disconnect between params id and session id?
-    #it's a coincidence, only works because the first the pitches are directly related to first the users
+  end
+
+  def all_stories
+    @stories = Story.all
+    render :all_stories
   end
 
   def edit
-    @story = Story.find(params[:id])
+    if @story.user.email == session[:user_email] || session[:user_role] == "admin"
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -46,12 +49,37 @@ class StoriesController < ApplicationController
     redirect_to user_path(user)
   end
 
+  def load_story
+    @story = Story.find(params[:id])
+  end
+
+  def authorized?
+    current_user_email = @story.user.email
+    sessions_email = session[:user_email]
+    current_user_email == sessions_email
+  end
+
+  def admin?
+    session[:user_role] == "admin"
+  end
+
+  helper_method :authorized?
+  helper_method :admin?
+
   private
 
   def story_params
     params.require(:story).permit(:url, :description)
   end
 
+
+  def load_user
+    @user = User.find(session[:user_id])
+  end
+
+  def load_story
+    @story = Story.find(params[:id])
+  end
 
 
 

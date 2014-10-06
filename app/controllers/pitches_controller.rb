@@ -1,17 +1,14 @@
 class PitchesController < ApplicationController
 
-
+  before_action :load_all_pitches
 
   def index
-    @pitches = Pitch.all
   end
 
   def individual
-    @pitches = Pitch.all
   end
 
   def business
-    @pitches = Pitch.all
   end
 
   def new
@@ -42,6 +39,11 @@ class PitchesController < ApplicationController
 
   def edit
     @pitch = Pitch.find(params[:id])
+    if @pitch.user.email == session[:user_email] || admin?
+      render :edit
+    else
+      redirect_to root_path
+    end
   end
 
   def update
@@ -49,6 +51,23 @@ class PitchesController < ApplicationController
     pitch = Pitch.find(params[:id])
     pitch.update(pitch_params)
     redirect_to story_pitch_path(story, pitch)
+  end
+
+  helper_method :authorized?
+  helper_method :admin?
+
+  def authorized?
+    current_user_email = @pitch.user.email
+    sessions_email = session[:user_email]
+    current_user_email == sessions_email
+  end
+
+  def admin?
+    session[:user_role] == "admin"
+  end
+
+  def load_all_pitches
+    @pitches = Pitch.all
   end
 
   private
