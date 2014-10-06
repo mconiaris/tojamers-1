@@ -33,7 +33,64 @@ def random_user_individual
 end
 
 def random_story
-  Story.create(user_id: rand(1..50), url: Faker::Internet.url, description: Faker::Company.catch_phrase)
+    url                   = Faker::Internet.url
+    description           = Faker::Company.catch_phrase
+    linked_in             = Faker::Internet.url
+    personal_site         = Faker::Internet.url
+    html                  = [true, false].sample
+    css                   = [true, false].sample
+    ruby_on_rails         = [true, false].sample
+    ruby                  = [true, false].sample
+    python                = [true, false].sample
+    javascript            = [true, false].sample
+    product_management    = [true, false].sample
+    project_management    = [true, false].sample
+    marketing             = [true, false].sample
+    ux_design             = [true, false].sample
+    redis                 = [true, false].sample
+    postgresql            = [true, false].sample
+    mysql                 = [true, false].sample
+    personal_location     = Faker::Address.city
+    personal_description  = Faker::Company.bs
+    image_url             = Faker::Company.logo
+    business_name         = Faker::Company.name
+    logo_url              = Faker::Company.logo
+    business_location     = Faker::Address.city
+    business_description  = Faker::Company.bs
+    industry              = ["Web Development", "Finance", "Back-end Development", "Media", "Advertising"].sample
+    founders              = [Faker::Name.name, Faker::Name.name, Faker::Name.name]
+    size                  = rand(100)
+    year_founded          = [1975..2014].sample
+    Story.create( user_id: rand(1..50),
+                  url: url,
+                  description: description,
+                  linked_in: linked_in,
+                  personal_site: personal_site,
+                  html: html,
+                  css: css,
+                  ruby_on_rails: ruby_on_rails,
+                  ruby: ruby,
+                  python: python,
+                  javascript: javascript,
+                  product_management: product_management,
+                  project_management: project_management,
+                  marketing: marketing,
+                  ux_design: ux_design,
+                  redis: redis,
+                  postgresql: postgresql,
+                  mysql: mysql,
+                  personal_location: personal_location,
+                  personal_description: personal_description
+                  image_url: image_url
+                  business_name: business_name,
+                  logo_url: logo_url,
+                  business_location: business_location,
+                  business_description: business_description,
+                  industry: industry,
+                  founders: founders,
+                  size: size
+                  year_founded: year_founded
+                )
 end
 
 def random_pitch
