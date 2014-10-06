@@ -12,8 +12,10 @@ class StoriesController < ApplicationController
     @user = User.find(@user_id)
     if @user.user_type == "individual"
       render :individual_form
-    else
+    elsif @user.user_type == "company"
       render :company_form
+    else
+      redirect_to root_path
     end
   end
 
