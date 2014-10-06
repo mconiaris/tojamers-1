@@ -39,7 +39,7 @@ class PitchesController < ApplicationController
 
   def edit
     @pitch = Pitch.find(params[:id])
-    if @pitch.user.email == session[:user_email]
+    if @pitch.user.email == session[:user_email] || admin?
       render :edit
     else
       redirect_to root_path
@@ -54,11 +54,16 @@ class PitchesController < ApplicationController
   end
 
   helper_method :authorized?
+  helper_method :admin?
 
   def authorized?
     current_user_email = @pitch.user.email
     sessions_email = session[:user_email]
     current_user_email == sessions_email
+  end
+
+  def admin?
+    session[:user_role] == "admin"
   end
 
   def load_all_pitches

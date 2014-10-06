@@ -19,6 +19,7 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
     @user.save
     session[:user_id] = @user.id
     session[:user_email] = @user.email
+    session[:user_role] = @user.role
     redirect_to user_path(@user)
   end
 
@@ -26,6 +27,8 @@ before_action :authorize, only: [:show, :edit, :destroy, :update,]
     user = User.find(params[:id])
     user.delete
     session[:user_id] = nil
+    session[:user_email] = nil
+    session[:user_role] = nil
     redirect_to root_path
   end
 
