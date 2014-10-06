@@ -3,11 +3,13 @@ MY STORIES
 </br>
 <% if @user.stories.empty? == false %>
   <% @user.stories.each do |story| %>
-  <%= link_to(story[:description],story_path(story)) %>
-  </br>
+      <%= link_to(story[:nickname],story_path(story)) %>
+      </br>
   <% end %>
 <% else %>
 Looks like you haven't made a story yet! <%= link_to("Make one!", new_story_path) %>
 <%end %>
+</br>
+<%= link_to("Make one!", new_story_path) %>
 </br>
 <%= link_to 'Back', :back %>

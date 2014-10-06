@@ -4,21 +4,26 @@ class StoriesController < ApplicationController
 
   def index
     @user = User.find(session[:user_id])
-    # @user = User.find(params[:user_id])
   end
 
   def new
     @story = Story.new
     @user_id = session[:user_id]
-    #we need two renders here.
-    #if @story.user.user_type == "individual"
-      # render :individual_form
-    #else
-      # render :company_form
-    #end
+    @user = User.find(@user_id)
+    if @user.user_type == "individual"
+      render :individual_form
+    else
+      render :company_form
+    end
   end
 
   def show
+    #need two pages here, if @story.user.user_type ==,,etc
+    if @story.user.user_type == "company"
+      render :company_story
+    else
+      render :individual_story
+    end
   end
 
   def all_stories
@@ -49,7 +54,7 @@ class StoriesController < ApplicationController
   end
 
   def create
-    user = User.find(params[:userid])
+    user = User.find(session[:user_id])
     story = Story.create(story_params)
     story.user = user
     story.save
@@ -76,7 +81,9 @@ class StoriesController < ApplicationController
   private
 
   def story_params
-    params.require(:story).permit(:url, :description)
+    params.require(:story).permit(:url, :description, :ruby, :python, :ruby_on_rails, :personal_site, :html, :css, :javascript,
+      :product_management, :project_management, :marketing, :ux_design, :redis, :postgresql, :mysql, :personal_location, :personal_description,
+      :image_url, :business_name, :logo_url, :business_location, :business_description, :industry, :founders, :linked_in, :size, :year_founded, :nickname, :skills)
   end
 
 

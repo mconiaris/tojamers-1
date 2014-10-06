@@ -1,1 +1,25 @@
 INDIVIDUAL STORY FORM HERE
+<%= form_for @story do |f| %>
+What's a nickname for this story?
+<%= f.text_field :nickname %>
+</br>
+LinkedIn profile:
+<%= f.text_field :linked_in %>
+</br>
+Personal website:
+<%= f.text_field :personal_site %>
+</br>
+Link to your image:
+<%= f.text_field :image_url %>
+</br>
+Your location
+<%= f.text_field :personal_location %>
+</br>
+YOUR BIG PITCH HERE YOU SELF-AGGRANDIZING SHITBAG
+<%= f.text_field :personal_description %>
+</br>
+YOUR SKILLZ HERE
+<%= f.text_field :skills %>
+</br>
+<%= f.submit "submit" %>
+<% end %>
