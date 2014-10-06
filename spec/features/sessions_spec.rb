@@ -52,7 +52,7 @@ describe "the logout process", :type => :feature do
   end
 end
 
-xdescribe "the unsuccessful signin process", :type => :feature do
+describe "the unsuccessful signin process", :type => :feature do
   before :each do
     User.create(first_name: "Ryan", last_name: "Parks", email: "rnparks@gmail.com", phone: "(917) 750-2397", user_type: "company", password: "12345")
   end
@@ -60,11 +60,11 @@ xdescribe "the unsuccessful signin process", :type => :feature do
     visit '/login'
     within("div.login") do
       fill_in 'Email', :with => 'rnparks@gmail.com'
-      fill_in 'Password', :with => '12345'
+      fill_in 'Password', :with => '123456'
     end
     # TODO: Replace 'Login' with a variable or a
     # placeholder in case 'Login' changes.
     click_button 'Login'
-    expect(page).to have_content 'Hey, Ryan!'
+    expect(page).to have_content 'Sorry! Your password or username is wrong. Please try again!'
   end
 end
