@@ -32,7 +32,7 @@ end
 # TODO: Add gem to simulate session data
 # I don't think that there's any other way
 # to do this.
-x describe "GET /stories/new for an individual", :type => :feature do
+xdescribe "GET /stories/new for an individual", :type => :feature do
   before :each do
     User.create(first_name: "Andy",
                 last_name: "Fritz",
