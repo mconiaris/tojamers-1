@@ -1,31 +1,24 @@
 <div class="text-center">
 
 
-INDIVIDUAL STORY
 
 Linkedin
-<%= @story.linked_in %>
+<%= @story.linked_in %><br>
 </br>
-A link to my personal Website
 </br>
-<%= @story.personal_site %>
+<%= @story.personal_site %><br><br>
 </br>
-My image
+<%= @story.image_url %><br><br>
 </br>
-<%= @story.image_url %>
+<%= @story.personal_location %><br><br>
 </br>
-My Location
+<%= @story.personal_description %><br><br>
 </br>
-<%= @story.personal_location %>
-My story:
-</br>
-<%= @story.personal_description %>
-</br>
-<h1> SKILLZ </h1>
+Skills <br>
 <%= @story.skills %>
-</br>
+</br><br>
 
-
+<br>
 PITCHES FOR THIS STORY
 </br>
 <% @story.pitches.each do |pitch| %>
