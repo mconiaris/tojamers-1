@@ -20,3 +20,5 @@ ROUTES TO FIX IF SESSION == NULL
 
 /pitches/business - crashes when session is null.
 
+
+ROUTES TO FIX IF SESSION == INDIVIDUAL
