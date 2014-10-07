@@ -2168,7 +2168,7 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.active:hover > td,
 .table-hover > tbody > tr:hover > .active,
 .table-hover > tbody > tr.active:hover > th {
-  background-color: #e8e8e8;
+  background-color: black;
 }
 .table > thead > tr > td.success,
 .table > tbody > tr > td.success,
@@ -2758,7 +2758,7 @@ select[multiple].input-lg {
 }
 .btn:hover,
 .btn:focus {
-  color: #7d7d7d
+  color: #7d7d7d;
   text-decoration: none;
 }
 .btn:active,
@@ -2780,7 +2780,7 @@ fieldset[disabled] .btn {
 }
 .btn-default {
   color: black;
-  background-color: #7d7d7d;
+  background-color: #ec583a;
   border-color: #ccc;
 }
 .btn-default:hover,
@@ -3778,7 +3778,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar {
   position: relative;
-  min-height: 50px;
+  height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
 }
@@ -4616,7 +4616,7 @@ a.list-group-item.active > .badge,
   padding: 4px;
   margin-bottom: 20px;
   line-height: 1.42857143;
-  background-color: green;
+  background-color: #93b1c6;
   border-radius: 4px;
   text-align: center;
   opacity: 0.80;
@@ -4627,6 +4627,24 @@ a.list-group-item.active > .badge,
        -o-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
 }
+
+.thumbnailz {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: #ff7148;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0.80;
+  height:200px;
+  width:200px;
+  font-size: 17px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
+
 .thumbnail > img,
 .thumbnail a > img {
   margin-right: auto;
@@ -6234,12 +6252,41 @@ button.close {
   }
 }
 body {
-   background:#7d7d7d !important;
-   background-image: url("http://www.freeimages.com/pic/l/m/ma/matthains/116563_5641.jpg") !important;
    background-position:center;
-   background-position: fixed;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
+   background-color: #c7d0d5 !important;
 }
+
+.logincontainer {
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f8f8f8;
+  opacity: .8;
+}
+
+.regcontainter {
+  padding-right: 15px;
+  padding-left: 15px;
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f8f8f8;
+  opacity: .8;
+}
+
+.login {
+  position: relative;
+  margin: 0 auto;
+  padding: 20px 20px 20px;
+  width: 310px;
+  text-align: center;
+}
+
+
+
+
+
 
 /*# sourceMappingURL=bootstrap.css.map */
