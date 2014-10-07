@@ -1,3 +1,22 @@
 TODO
 
 Put text here that you think might work in the future.
+
+ROUTES TO FIX IF SESSION == NULL
+
+/stories/:story_id/pitches - shows all pitches (not just the users) even though there is no login. Right now it does not behave as we want.
+
+/stories - needs if statment for null session. Right now it crashes.
+
+/stories/new - needs if statement for null session. Right now it crashes.
+
+/stories/:id/edit - needs if statement for null session. Right now it crashes.
+
+/stories/:id - needs if statement for null session. Right now it crashes.
+
+/admin/users - loads even in a null session, which is not the desired behavior. Probably needs an if statment to ensure that if a user is not an admin that it redirects.
+
+/pitches/individual - crashes when session is null.
+
+/pitches/business - crashes when session is null.
+
