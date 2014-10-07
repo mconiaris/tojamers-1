@@ -16,7 +16,7 @@ def random_user_company
     'user']['name']['last']
   email = response['results'][0]['user']['email']
   phone = response['results'][0]['user']['phone']
-  user_type = "Company"
+  user_type = "company"
   password = response['results'][0]['user']['password']
   User.create(first_name: first_name, last_name: last_name, email: email, phone: phone, user_type: user_type, password: password)
 end
@@ -27,7 +27,7 @@ def random_user_individual
   last_name = response['results'][0]['user']['name']['last']
   email = response['results'][0]['user']['email']
   phone = response['results'][0]['user']['phone']
-  user_type = "Individual"
+  user_type = "individual"
   password = response['results'][0]['user']['password']
   User.create(first_name: first_name, last_name: last_name, email: email, phone: phone, user_type: user_type, password: password)
 end
