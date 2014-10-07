@@ -64,7 +64,7 @@ dfn {
 h1 {
   margin: .67em 0;
   font-size: 2em;
-  color: #f8f8f8;
+  color: black;
 }
 mark {
   color: #000;
@@ -1004,7 +1004,7 @@ h6,
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
-  color: #f8f8f8;
+  color: black;
 }
 h1 small,
 h2 small,
@@ -1083,7 +1083,7 @@ h6 .small,
 h1,
 .h1 {
   font-size: 36px;
-  color: #f8f8f8;
+  color: black;
 }
 h2,
 .h2 {
@@ -6254,6 +6254,7 @@ button.close {
 body {
    background-position:center;
    background-color: #c7d0d5 !important;
+   background-image: url(http://www.freeimages.com/pic/l/m/ma/matthains/116563_5641.jpg)
 }
 
 .logincontainer {
