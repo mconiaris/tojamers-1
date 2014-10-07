@@ -7,9 +7,8 @@ COMPANY STORY
 
 Business Name:
 <%= @story.business_name %></br>
-Logo URL
 <%= image_tag(@story.logo_url) %></br>
-Business location:
+Business Location:
 <%= @story.business_location %></br>
 Business Description:
 <%= @story.business_description %></br>
@@ -21,7 +20,7 @@ Size:
 <%= @story.size %></br>
 Year founded:
 <%= @story.year_founded %></br>
-</br></br>
+</br></br><br><br>
 PITCHES FOR THIS STORY
 </br>
 <% @story.pitches.each do |pitch| %>
