@@ -13,7 +13,7 @@
 </br>
 
 <% @pitches.each do |pitch| %>
-   <% if pitch.user.user_type == "Company" %>
+   <% if pitch.user.user_type == "company" %>
      <%= link_to(pitch.body, story_path(pitch.story_id)) %>
    </br>
    <% end %>
