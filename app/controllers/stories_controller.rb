@@ -33,7 +33,11 @@ class StoriesController < ApplicationController
 
   def edit
     if @story.user.email == session[:user_email] || session[:user_role] == "admin"
-      render :edit
+      if @story.user.user_type == "individual"
+      render :edit_individual
+      else
+      render :edit_company
+      end
     else
       redirect_to root_path
     end
