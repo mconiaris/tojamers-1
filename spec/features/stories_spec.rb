@@ -9,3 +9,29 @@ RSpec.describe "Stories", :type => :request do
     end
   end
 end
+
+describe "GET /stories/new for a company", :type => :feature do
+  before :each do
+    User.create(first_name: "Ryan",
+                last_name: "Parks",
+                email: "rnparks@gmail.com",
+                phone: "(917) 750-2397",
+                user_type: "company",
+                password: "12345")
+  end
+    it "loads its new story form" do
+      binding.pry
+    session[:user_id] ||= User.last.id
+      visit '/stories/new'
+      expect(page).to have_content 'Business name'
+  end
+end
+
+
+
+    # ind_user = User.create(first_name: "Andy",
+    #             last_name: "Fritz",
+    #             email: "frizy@gmail.com",
+    #             phone: "(718) 555-2397",
+    #             user_type: "individual",
+    #             password: "12345")
