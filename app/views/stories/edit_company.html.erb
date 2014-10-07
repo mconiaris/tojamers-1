@@ -1,1 +1,31 @@
-edit_company.html.erb
+EDIT FORM
+<%= form_for @story do |f| %>
+What's a nickname for this story?
+<%= f.text_field :nickname %>
+</br>
+Business name
+<%= f.text_field :business_name %>
+</br>
+Logo URL
+<%= f.text_field :logo_url %>
+</br>
+Business location
+<%= f.text_field :business_location %>
+</br>
+Business Description
+<%= f.text_field :business_description %>
+</br>
+Industry
+<%= f.text_field :industry %>
+</br>
+Founders
+<%= f.text_field :founders %>
+</br>
+Size
+<%= f.text_field :size %>
+</br>
+Year Founded
+<%= f.text_field :year_founded %>
+</br>
+<%= f.submit "submit" %>
+<% end %>

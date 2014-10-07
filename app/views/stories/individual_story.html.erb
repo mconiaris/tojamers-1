@@ -26,8 +26,8 @@ My story:
 PITCHES FOR THIS STORY
 </br>
 <% @story.pitches.each do |pitch| %>
-<%= link_to(pitch[:body], story_pitch_path(@story, pitch)) %>
-</br>
+  <%= link_to(pitch[:body], story_pitch_path(@story, pitch)) %>
+  </br>
 <% end %>
 </br>
 <% if authorized? || admin? %>

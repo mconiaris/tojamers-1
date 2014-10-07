@@ -16,7 +16,7 @@ def random_user_company
     'user']['name']['last']
   email = response['results'][0]['user']['email']
   phone = response['results'][0]['user']['phone']
-  user_type = "Company"
+  user_type = "company"
   password = response['results'][0]['user']['password']
   User.create(first_name: first_name, last_name: last_name, email: email, phone: phone, user_type: user_type, password: password)
 end
@@ -27,12 +27,13 @@ def random_user_individual
   last_name = response['results'][0]['user']['name']['last']
   email = response['results'][0]['user']['email']
   phone = response['results'][0]['user']['phone']
-  user_type = "Individual"
+  user_type = "individual"
   password = response['results'][0]['user']['password']
   User.create(first_name: first_name, last_name: last_name, email: email, phone: phone, user_type: user_type, password: password)
 end
 
 def random_story
+    skills                = ["ruby", "php", "c", "marketing", 'rapid hungover recovery', 'sales', 'able to leap talls buildings']
     url                   = Faker::Internet.url
     description           = Faker::Company.catch_phrase
     linked_in             = Faker::Internet.url
@@ -57,6 +58,8 @@ def random_story
     logo_url              = Faker::Company.logo
     business_location     = Faker::Address.city
     business_description  = Faker::Company.bs
+    my_skills             = "#{skills.sample}, #{skills.sample}, #{skills.sample}"
+    nickname              = Faker::Name.name
     industry              = ["Web Development", "Finance", "Back-end Development", "Media", "Advertising"].sample
     founders              = "#{Faker::Name.name}, #{Faker::Name.name}, #{Faker::Name.name}"
     size                  = rand(100)
@@ -66,19 +69,8 @@ def random_story
                   description: description,
                   linked_in: linked_in,
                   personal_site: personal_site,
-                  html: html,
-                  css: css,
-                  ruby_on_rails: ruby_on_rails,
-                  ruby: ruby,
-                  python: python,
-                  javascript: javascript,
-                  product_management: product_management,
-                  project_management: project_management,
-                  marketing: marketing,
-                  ux_design: ux_design,
-                  redis: redis,
-                  postgresql: postgresql,
-                  mysql: mysql,
+                  skills: my_skills,
+                  nickname: nickname,
                   personal_location: personal_location,
                   personal_description: personal_description,
                   image_url: image_url,
@@ -135,3 +127,16 @@ end
   random_pitch
 end
 
+# html: html,
+#                   css: css,
+#                   ruby_on_rails: ruby_on_rails,
+#                   ruby: ruby,
+#                   python: python,
+#                   javascript: javascript,
+#                   product_management: product_management,
+#                   project_management: project_management,
+#                   marketing: marketing,
+#                   ux_design: ux_design,
+#                   redis: redis,
+#                   postgresql: postgresql,
+#                   mysql: mysql,

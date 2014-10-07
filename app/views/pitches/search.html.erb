@@ -1,4 +1,5 @@
-<h1>Showing All the Pitches from Individuals </h1>
+<h1>Showing All the Pitches</h1>
+
 <!-- Search bar  -->
 <%= form_tag('/pitches/search', method: "post") do %>
   <%= label_tag(:q, "Search for:") %>
@@ -7,14 +8,12 @@
 <% end %>
 
 <!-- bar of links to different sorts of all pitches -->
-<%= link_to("Sort by individuals", pitches_individual_path) %> |
+<%= link_to("Sort by individuals", pitches_individual_path) %>
 <%= link_to("Sort by businesses", pitches_business_path) %>
-</br>
-</br>
 
+<ol>
 <% @pitches.each do |pitch| %>
-   <% if pitch.user.user_type == "Individual" %>
-     <%= link_to(pitch.body, story_path(pitch.story_id)) %>
-   </br>
-   <% end %>
+  <%= link_to(pitch.body, story_path(pitch.story_id)) %>
+  </br>
 <% end %>
+</ol>
