@@ -1,13 +1,13 @@
 <div class="front-matter">
-  <h1>Welcome to Elevator Pitch!</h1>
-  <p><em>You have 140 characters to make your case. Good luck.</em></p>
+  <h1>Welcome to The Hook</h1>
+  <p>You have 140 characters to make your case. Good luck.</p>
   <p>Login!</p>
 
-  <div class="login">
+  <div class="login" >
     <%= form_tag(session_path) do %>
-      <%= label_tag(:email) %><br/>
+      <p><%= label_tag(:email) %><br/></p>
       <%= text_field_tag(:email) %><br/>
-      <%= label_tag(:password) %><br/>
+      <p><%= label_tag(:password) %><br/><p>
       <%= password_field_tag(:password) %><br/>
       <%= submit_tag('Login') %>
     <% end %>

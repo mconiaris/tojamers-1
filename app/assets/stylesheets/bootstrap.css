@@ -4608,6 +4608,25 @@ a.list-group-item.active > .badge,
        -o-transition: all .2s ease-in-out;
           transition: all .2s ease-in-out;
 }
+
+
+
+.thumbnailx {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 1.42857143;
+  background-color: green;
+  border-radius: 4px;
+  text-align: center;
+  opacity: 0.80;
+  height:200px;
+  width:200px;
+  font-size: 17px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
 .thumbnail > img,
 .thumbnail a > img {
   margin-right: auto;

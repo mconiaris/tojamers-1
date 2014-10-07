@@ -13,10 +13,13 @@
 
 <div class="row">
 <ul >
-
 <% @pitches.each do |pitch| %>
   <li class="col-sm-9 col-md-3">
-    <div class ="thumbnail">
+    <% if pitch.user.user_type == "Company" %>
+      <div class ="thumbnail">
+        <% else %>
+          <div class ="thumbnailx">
+            <% end %>
       <div class="caption"  >
             <%= pitch.body%>
               </br><br>
