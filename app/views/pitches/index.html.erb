@@ -1,7 +1,7 @@
 <h1>All Hooks</h1>
 
 <!-- Search bar  -->
-<%= form_tag('/pitches', method: "post") do %>
+<%= form_tag('/pitches/search', method: "post") do %>
   <%= label_tag(:q, "Search for:") %>
   <%= text_field_tag(:q) %>
   <%= submit_tag("Search") %>
