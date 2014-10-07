@@ -55,7 +55,6 @@ RSpec.describe StoriesController, :type => :controller do
 
   describe "GET new" do
     it "assigns a new story as @story" do
-      binding.pry
       get :new, {}, valid_session
       expect(assigns(:story)).to be_a_new(Story)
     end
