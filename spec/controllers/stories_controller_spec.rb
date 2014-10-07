@@ -57,14 +57,14 @@ RSpec.describe StoriesController, :type => :controller do
     end
   end
 
-  describe "GET new" do
+  xdescribe "GET new" do
     it "assigns a new story as @story" do
       get :new, {}, valid_session
       expect(assigns(:story)).to be_a_new(Story)
     end
   end
 
-  describe "GET edit" do
+  xdescribe "GET edit" do
     it "assigns the requested story as @story" do
       story = Story.create! valid_attributes
       get :edit, {:id => story.to_param}, valid_session
@@ -72,7 +72,7 @@ RSpec.describe StoriesController, :type => :controller do
     end
   end
 
-  describe "POST create" do
+  xdescribe "POST create" do
     describe "with valid params" do
       it "creates a new Story" do
         expect {
@@ -92,7 +92,7 @@ RSpec.describe StoriesController, :type => :controller do
       end
     end
 
-    describe "with invalid params" do
+    xdescribe "with invalid params" do
       it "assigns a newly created but unsaved story as @story" do
         post :create, {:story => invalid_attributes}, valid_session
         expect(assigns(:story)).to be_a_new(Story)
@@ -105,7 +105,7 @@ RSpec.describe StoriesController, :type => :controller do
     end
   end
 
-  describe "PUT update" do
+  xdescribe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
         skip("Add a hash of attributes valid for your model")
@@ -131,7 +131,7 @@ RSpec.describe StoriesController, :type => :controller do
       end
     end
 
-    describe "with invalid params" do
+    xdescribe "with invalid params" do
       it "assigns the story as @story" do
         story = Story.create! valid_attributes
         put :update, {:id => story.to_param, :story => invalid_attributes}, valid_session
@@ -146,7 +146,7 @@ RSpec.describe StoriesController, :type => :controller do
     end
   end
 
-  describe "DELETE destroy" do
+  xdescribe "DELETE destroy" do
     it "destroys the requested story" do
       story = Story.create! valid_attributes
       expect {
